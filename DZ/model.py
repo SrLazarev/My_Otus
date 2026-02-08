@@ -1,6 +1,5 @@
 import view
-from Otus_Basic_09.DZ.DZ_2_my.view import print_message
-
+from view import print_message
 
 # Базовый класс всех исключений нашего приложения
 class PhoneBookException(Exception):
