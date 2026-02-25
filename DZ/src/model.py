@@ -1,5 +1,5 @@
-import view
-from view import print_message
+from . import view
+
 
 # Базовый класс всех исключений нашего приложения
 class PhoneBookException(Exception):
@@ -29,12 +29,6 @@ class PhoneBook:
     FIELDS = ["name", "phone", "city", "address", "comment"]
 
 
-    @staticmethod
-    def normalize_name(name):
-        """Нормализует имя, приводя его к одному регистру и обрезая лишние пробелы."""
-        return name.strip().title()
-
-
     def __init__(self, path: str):
         """
         Конструктор класса PhoneBook.
@@ -42,6 +36,12 @@ class PhoneBook:
         """
         self.path = path
         self.phonebook = {}
+
+
+    @staticmethod
+    def normalize_name(name):
+        """Нормализует имя, приводя его к одному регистру и обрезая лишние пробелы."""
+        return name.strip().title()
 
 
     def __repr__(self):

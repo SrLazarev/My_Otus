@@ -1,10 +1,10 @@
-import view
-import model
+from . import model
+from . import view
 
 
 def start_app():
     """Запуск программы"""
-    phonebook = model.PhoneBook('phonebook.txt')
+    phonebook = model.PhoneBook('src/phonebook.txt')
     running = True
     while running:
         try:
