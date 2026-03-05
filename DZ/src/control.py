@@ -86,7 +86,8 @@ def delete_contacts(pb: model.PhoneBook):
     """Удаление контакта по выбранному ID."""
     id_delete = view.input_data(view.input_id_to_delete)
     contact_name = pb.delete_contact(id_delete)
-    view.print_message(view.delete_contact_successful.format(name=contact_name))
+    if contact_name is not None:
+        view.print_message(view.delete_contact_successful.format(name=contact_name))
 
 
 def exit_program(*args):

@@ -1,4 +1,5 @@
 from . import view
+from .view import print_message
 
 
 # Базовый класс всех исключений нашего приложения
@@ -75,12 +76,18 @@ class PhoneBook:
         except Exception as e:
             raise ReadFileError(str(e)) from None
 
-
     def save_file(self):
         """
         Сохранение телефонной книги в файл.
         """
         try:
+            # Проверяем целостность данных перед записью
+            for contact in self.phonebook.values():
+                for field in self.FIELDS:
+                    if field not in contact:
+                        raise SaveFileError(f'Недостающие поля в данных контакта: {field}')
+
+            # Если все поля присутствуют, производим запись
             with open(self.path, "w", encoding="utf-8") as file:
                 data = []
                 for contact in self.phonebook.values():
@@ -125,7 +132,6 @@ class PhoneBook:
                     break
         return result
 
-
     def edit_contact(self, contact_id: str, new_contact_data: list[str]):
         """
         Редактирует указанный контакт.
@@ -148,8 +154,7 @@ class PhoneBook:
         except ValueError:
             raise ContactNotFoundError(contact_id) from None
         except Exception as e:
-            raise SaveFileError(str(e)) from None
-
+            raise e
 
     def delete_contact(self, contact_id: str):
         """
@@ -161,9 +166,10 @@ class PhoneBook:
         try:
             contact_id = int(contact_id)
             if contact_id not in self.phonebook:
-                print_message(view.id_not_found)
-                return None
+                raise ContactNotFoundError(contact_id)  # <-- Здесь поднимаем исключение
             deleted_contact = self.phonebook.pop(contact_id)
             return deleted_contact["name"]
+        except ValueError:
+            raise ContactNotFoundError(contact_id) from None
         except Exception as e:
-            raise SaveFileError(str(e)) from None
+            raise e  # Пропускаем внутреннее исключение
