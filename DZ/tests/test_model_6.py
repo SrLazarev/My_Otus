@@ -4,7 +4,7 @@ from DZ.src.model import PhoneBook, SaveFileError
 def test_save_file_with_incorrect_data(tmp_path):
     """
     Тестирует реакцию на попытку сохранения некорректных данных.
-    Должно возбуждениться исключение SaveFileError.
+    Возбуждение исключение SaveFileError.
     """
     # Создаем временный файл
     temp_file = tmp_path / "contacts.csv"

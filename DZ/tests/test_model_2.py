@@ -29,7 +29,7 @@ def manager(tmp_path):
 
 def test_search_by_field(manager):
     """
-    Тестирует поиск контактов по различным полям (имя, номер телефона).
+    Тестирует поиск контактов по различным полям.
     """
     # Поиск по имени
     result = manager.find_contact('Ivanov')
