@@ -2,4 +2,3 @@ Grey;11111111;kerch;SNT Zaliv;Osn
 Jack;11113333;Kerch;Kuor;Tipeman
 Alexandr;11115555;Kerch;Fabrika;Hram
 Ann;11114444;Piter;Lenina str. 45;AnnReal
-Valeria;11112222;Kerch;Ulyanovih;Wife

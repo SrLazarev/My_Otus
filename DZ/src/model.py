@@ -173,3 +173,5 @@ class PhoneBook:
             raise ContactNotFoundError(contact_id) from None
         except Exception as e:
             raise e  # Пропускаем внутреннее исключение
+
+

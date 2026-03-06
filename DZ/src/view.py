@@ -108,6 +108,7 @@ error_id_format = "Неверный формат ID."
 error_empty_find = "Контакты, содержащие '{word}', не найдены"
 error_empty_book = "Телефонная книга пуста или не открыта"
 id_not_found = "Контакт с указанным ID не найден."
+message_error = "eRRoR"
 
 
 exit_message = "Вы вышли из программы! До новых встреч!"
